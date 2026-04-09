@@ -192,13 +192,15 @@ sjwc-catalog-tile {
 /* 2. Shrink the icon/image area */
 sjwc-catalog-tile img[slot="image"], 
 .catalog-tile__img-wrapper {
-    height: 140px !important; /* Smaller header area */
+    height: 240px !important; /* Smaller header area */
+      width: 240px;
     object-fit: contain !important;
     padding: 15px !important;
 }
 
 .catalog-tile-wrapper__content__tiles {
-      height: 140px !important; /* Smaller header area */
+    height: 240px !important; /* Smaller header area */
+    width: 240px;
     object-fit: contain !important;
     padding: 15px !important;
 }
