@@ -5,7 +5,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
 
 /* --- 1. GLOBAL BLACKOUT OVERRIDE --- */
-/* Target the core Skilljar layout to force black background */
 html, body, #main-container, #skilljar-content {
     background-color: #000000 !important;
     background: #000000 !important;
@@ -17,22 +16,27 @@ body, h1, h2, h3, h4, h5, h6, p, a, button, input, textarea, li {
     font-family: 'Manrope', sans-serif !important; 
 }
 
-/* Fix for Skilljar's white "top-row" and "grey-bg" classes */
 .top-row, .top-row-white-v2, .top-row-grey, .sj-grey-bg-v2 {
     background-color: #000000 !important;
     background: #000000 !important;
     border-bottom: 1px solid rgba(255,255,255,0.1) !important;
 }
 
-/* --- 2. NAVIGATION & HEADER --- */
-#header {
+/* --- 2. HEADER & NAVIGATION SIZING --- */
+/* This forces the containers to expand to 80px so children can center */
+#header, 
+#header .headerheight, 
+#header .header-left, 
+#header #header-right {
     background-color: #000000 !important;
     height: 80px !important;
+    min-height: 80px !important;
     display: flex !important;
     align-items: center !important;
     border-bottom: 1px solid rgba(255,255,255,0.1) !important;
 }
 
+/* --- 3. CUSTOM NAV ITEMS --- */
 .tw-custom-nav { 
     display: flex !important; 
     align-items: center !important; 
@@ -54,7 +58,7 @@ body, h1, h2, h3, h4, h5, h6, p, a, button, input, textarea, li {
 
 .tw-nav-item a { color: inherit; text-decoration: none; }
 
-/* DROPDOWN MENU FIX */
+/* DROPDOWN MENU */
 .tw-dropdown { 
     display: none; 
     position: absolute; 
@@ -81,37 +85,52 @@ body, h1, h2, h3, h4, h5, h6, p, a, button, input, textarea, li {
 
 .tw-dropdown a:hover { background: #1A6AFF !important; }
 
-/* --- 3. SIGN IN / ACCOUNT DROPDOWN FIX --- */
-#header-right { 
-    display: flex !important; 
-    align-items: center !important; 
-    height: 80px !important;
-}
-
+/* --- 4. SIGN IN / ACCOUNT DROPDOWN (VERTICAL CENTERING) --- */
+/* Target every possible class Skilljar uses for the login area */
 #header-right a.login-link,
 #header-right .header-login-button,
 #header-right #header-drop,
-#header-right .header-dropdown-button {
-    display: flex !important;
+#header-right .header-dropdown-button,
+#header-right .header-dropdown-button-v2 {
+    display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
     height: 80px !important;
     margin: 0 !important;
     padding: 0 20px !important;
     color: #ffffff !important;
+    line-height: normal !important; /* Resetting line-height prevents text float */
+    text-decoration: none !important;
+}
+
+/* Force the icon to be white and centered */
+#header-right .sj-icon-user, 
+#header-right .sj-icon-user::before {
+    color: #ffffff !important;
+    margin: 0 5px 0 0 !important;
 }
 
 /* User avatar alignment */
-#header-right #header-drop img, 
-#header-right .sj-icon-user {
+#header-right #header-drop img {
     margin: 0 !important;
-    transform: translateY(2px) !important;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
 }
 
-/* --- 4. PIERCE SHADOW DOM (COURSE TILES) --- */
+/* Sleek Dark Account Dropdown */
+#header #header-drop {
+    background-color: #111111 !important;
+    border: 1px solid rgba(255,255,255,0.2) !important;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.5) !important;
+    border-radius: 8px !important;
+    top: 80px !important;
+}
+
+/* --- 5. COURSE TILES (SHADOW DOM PIERCING) --- */
 sjwc-catalog-tile {
     display: block !important;
-    height: 380px !important; /* Adjusted Height */
+    height: 380px !important;
     min-height: 380px !important;
     max-height: 380px !important;
     border-radius: 16px !important;
@@ -119,8 +138,6 @@ sjwc-catalog-tile {
     background-color: #000000 !important;
     border: 1px solid #ffffff !important;
     margin: 15px !important;
-
-    /* Shadow DOM Variable Overrides */
     --511f908c: #000000 !important; 
     --tile-background-color: #000000 !important;
     --06e27304: #ffffff !important; 
@@ -133,23 +150,20 @@ sjwc-catalog-tile {
     height: 100% !important;
 }
 
-/* Slot targeting for text colors */
 sjwc-catalog-tile h2[slot="title"] { color: #ffffff !important; }
 sjwc-catalog-tile p[slot="description"] { 
     color: rgba(255, 255, 255, 0.9) !important;
     display: -webkit-box !important;
     -webkit-line-clamp: 2 !important;
     -webkit-box-orient: vertical !important;
-    overflow: hidden !important;
+    overflow: hidden;
 }
 
-/* Tile Hover State */
 sjwc-catalog-tile:hover {
     border-color: #4CAF50 !important;
     --537824e4: #4CAF50 !important;
 }
 
-/* Icon/Image Shrink */
 sjwc-catalog-tile img[slot="image"], 
 .catalog-tile__img-wrapper {
     height: 140px !important;
@@ -157,63 +171,15 @@ sjwc-catalog-tile img[slot="image"],
     padding: 15px !important;
 }
 
-/* --- 5. MOBILE RESPONSIVENESS --- */
+/* --- 6. MOBILE RESPONSIVENESS --- */
 @media (max-width: 768px) {
-    #header { height: 60px !important; }
+    #header, .headerheight, #header-right { height: 60px !important; min-height: 60px !important; }
     .tw-custom-nav { display: none !important; }
-    #header-right, #header-right a.login-link, #header-right #header-drop { height: 60px !important; }
+    #header-right a.login-link, #header-right #header-drop { height: 60px !important; }
     
     sjwc-catalog-tile {
         width: calc(100% - 30px) !important;
         height: auto !important;
         max-height: none !important;
     }
-}
-
-/* --- FINAL SIGN IN VERTICAL ALIGNMENT --- */
-#header-right a.login-link,
-#header-right .header-login-button,
-#header-right #header-drop,
-#header-right .header-dropdown-button {
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    
-    
-    height: 80px !important;      /* Matches the rest of the nav */
-    line-height: 80px !important; /* Forces the text to the vertical center */
-    
-    margin: 0 !important;
-    padding: 0 20px !important;
-    vertical-align: middle !important;
-    
-    position: relative !important;
-    top: 0 !important; /* Resets any 'top' push from core CSS */
-}
-#header .login-link {
-    padding: 23px 20px;
-    margin-right: 8px;
-}
-
-/* Ensure the text inside doesn't have a top margin */
-#header-right a.login-link span,
-#header-right .header-login-button span {
-    margin-top: 0 !important;
-    display: inline-block !important;
-}
-/* --- NEUTRALIZE CORE HEADER HEIGHT LIMITS --- */
-#header .headerheight,
-#header .header-left,
-#header #header-right {
-    height: 80px !important; /* Force internal containers to match our 80px header */
-    min-height: 80px !important;
-}
-
-/* Ensure the login link specifically fills that height to center its text */
-#header .login-link,
-#header .header-dropdown-button-v2 {
-    height: 80px !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    margin: 0 !important;
 }
