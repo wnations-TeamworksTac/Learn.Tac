@@ -21,16 +21,16 @@ body, h1, h2, h3, h4, h5, h6, div, p, span, a, button, input, select, textarea, 
 }
 
 /* --- 3. CATALOG WRAPPER BLACKOUT --- */
-/* Target the specific wrapper you identified only on catalog pages */
+/* Targeted blackout including the justified wrapper class */
 body[class*="sj-page-catalog"] #skilljar-content,
 body[class*="sj-page-catalog"] .catalog-tile-wrapper,
+body[class*="sj-page-catalog"] .catalog-tile-wrapper__content__tiles.justify-content-center,
 body[class*="sj-page-catalog"] .white-bg-v2,
 body[class*="sj-page-catalog"] .grey-bg-d05 {
     background-color: #000000 !important;
     background: #000000 !important;
 }
 
-/* Ensure top sections on catalog pages match blackout */
 body[class*="sj-page-catalog"] .top-row, 
 body[class*="sj-page-catalog"] .top-row-white-v2, 
 body[class*="sj-page-catalog"] .sj-grey-bg-v2 {
