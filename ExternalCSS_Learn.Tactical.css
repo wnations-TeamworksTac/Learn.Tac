@@ -4,10 +4,15 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
 
-/* --- 1. GLOBAL BLACKOUT OVERRIDE --- */
+/* --- 1. GLOBAL BACKGROUND IMAGE OVERRIDE --- */
 html, body, #main-container, #skilljar-content {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                url('https://teamworks.com/wp-content/uploads/v2_Home-Hero-Back-1-5-scaled.webp') !important;
     background-color: #000000 !important;
-    background: #000000 !important;
+    background-attachment: fixed !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
     max-width: 100vw;
     overflow-x: hidden;
 }
@@ -16,14 +21,14 @@ body, h1, h2, h3, h4, h5, h6, p, a, button, input, textarea, li {
     font-family: 'Manrope', sans-serif !important; 
 }
 
-.top-row, .top-row-white-v2, .top-row-grey, .sj-grey-bg-v2 {
-    background-color: #000000 !important;
-    background: #000000 !important;
+/* Make inner containers transparent so the image shows through */
+.top-row, .top-row-white-v2, .top-row-grey, .sj-grey-bg-v2, #skilljar-content {
+    background-color: transparent !important;
+    background: transparent !important;
     border-bottom: 1px solid rgba(255,255,255,0.1) !important;
 }
 
 /* --- 2. HEADER & NAVIGATION SIZING --- */
-/* This forces the containers to expand to 80px so children can center */
 #header, 
 #header .headerheight, 
 #header .header-left, 
@@ -58,7 +63,6 @@ body, h1, h2, h3, h4, h5, h6, p, a, button, input, textarea, li {
 
 .tw-nav-item a { color: inherit; text-decoration: none; }
 
-/* DROPDOWN MENU */
 .tw-dropdown { 
     display: none; 
     position: absolute; 
@@ -74,19 +78,10 @@ body, h1, h2, h3, h4, h5, h6, p, a, button, input, textarea, li {
 }
 
 .tw-nav-item:hover .tw-dropdown { display: flex !important; }
-
-.tw-dropdown a { 
-    color: #ffffff !important; 
-    padding: 12px 20px !important; 
-    text-decoration: none !important;
-    display: block;
-    width: 100%;
-}
-
+.tw-dropdown a { color: #ffffff !important; padding: 12px 20px !important; display: block; width: 100%; }
 .tw-dropdown a:hover { background: #1A6AFF !important; }
 
 /* --- 4. SIGN IN / ACCOUNT DROPDOWN (VERTICAL CENTERING) --- */
-/* Target every possible class Skilljar uses for the login area */
 #header-right a.login-link,
 #header-right .header-login-button,
 #header-right #header-drop,
@@ -97,20 +92,21 @@ body, h1, h2, h3, h4, h5, h6, p, a, button, input, textarea, li {
     justify-content: center !important;
     height: 80px !important;
     margin: 0 !important;
+    /* FORCE ZERO ON PADDING/MARGIN THAT PUSHES IT UP */
     padding: 0 20px !important;
+    padding-top: 0 !important;
+    margin-top: 0 !important;
     color: #ffffff !important;
-    line-height: normal !important; /* Resetting line-height prevents text float */
+    line-height: 80px !important; /* Force line-height to match total header height */
     text-decoration: none !important;
 }
 
-/* Force the icon to be white and centered */
 #header-right .sj-icon-user, 
 #header-right .sj-icon-user::before {
     color: #ffffff !important;
     margin: 0 5px 0 0 !important;
 }
 
-/* User avatar alignment */
 #header-right #header-drop img {
     margin: 0 !important;
     border-radius: 50%;
@@ -118,16 +114,7 @@ body, h1, h2, h3, h4, h5, h6, p, a, button, input, textarea, li {
     height: 30px;
 }
 
-/* Sleek Dark Account Dropdown */
-#header #header-drop {
-    background-color: #111111 !important;
-    border: 1px solid rgba(255,255,255,0.2) !important;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.5) !important;
-    border-radius: 8px !important;
-    top: 80px !important;
-}
-
-/* --- 5. COURSE TILES (SHADOW DOM PIERCING) --- */
+/* --- 5. COURSE TILES --- */
 sjwc-catalog-tile {
     display: block !important;
     height: 380px !important;
@@ -145,11 +132,7 @@ sjwc-catalog-tile {
     --3676d864: #ffffff !important; 
 }
 
-.catalog-tile {
-    background-color: #000000 !important;
-    height: 100% !important;
-}
-
+.catalog-tile { background-color: #000000 !important; height: 100% !important; }
 sjwc-catalog-tile h2[slot="title"] { color: #ffffff !important; }
 sjwc-catalog-tile p[slot="description"] { 
     color: rgba(255, 255, 255, 0.9) !important;
@@ -159,13 +142,8 @@ sjwc-catalog-tile p[slot="description"] {
     overflow: hidden;
 }
 
-sjwc-catalog-tile:hover {
-    border-color: #4CAF50 !important;
-    --537824e4: #4CAF50 !important;
-}
-
-sjwc-catalog-tile img[slot="image"], 
-.catalog-tile__img-wrapper {
+sjwc-catalog-tile:hover { border-color: #4CAF50 !important; --537824e4: #4CAF50 !important; }
+sjwc-catalog-tile img[slot="image"], .catalog-tile__img-wrapper {
     height: 140px !important;
     object-fit: contain !important;
     padding: 15px !important;
@@ -175,11 +153,6 @@ sjwc-catalog-tile img[slot="image"],
 @media (max-width: 768px) {
     #header, .headerheight, #header-right { height: 60px !important; min-height: 60px !important; }
     .tw-custom-nav { display: none !important; }
-    #header-right a.login-link, #header-right #header-drop { height: 60px !important; }
-    
-    sjwc-catalog-tile {
-        width: calc(100% - 30px) !important;
-        height: auto !important;
-        max-height: none !important;
-    }
+    #header-right a.login-link, #header-right #header-drop { height: 60px !important; line-height: 60px !important; }
+    sjwc-catalog-tile { width: calc(100% - 30px) !important; height: auto !important; max-height: none !important; }
 }
