@@ -4,7 +4,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
 
-/* --- 1. GLOBAL SETTINGS --- */
+/* --- 1. GLOBAL TYPOGRAPHY --- */
 body, h1, h2, h3, h4, h5, h6, p, span, a, button, input, select, textarea, li { 
     font-family: 'Manrope', sans-serif !important; 
 }
@@ -13,10 +13,11 @@ body, h1, h2, h3, h4, h5, h6, p, span, a, button, input, select, textarea, li {
 #header {
     background-color: #000000 !important;
     height: 80px !important;
-    border-bottom: 1px solid rgba(255,255,255,0.1) !important;
 }
 
-#header .headerheight, #header .header-left, #header #header-right {
+#header .headerheight, 
+#header .header-left, 
+#header #header-right {
     height: 80px !important;
     display: flex !important;
     align-items: center !important;
@@ -28,36 +29,43 @@ body, h1, h2, h3, h4, h5, h6, p, span, a, button, input, select, textarea, li {
     margin-right: 20px; 
 }
 
-.tw-nav-item { 
+/* Force Nav Links to be White (Overrides Skilljar Blue) */
+.tw-nav-item, 
+.tw-nav-item a, 
+.tw-nav-item a:visited, 
+.tw-nav-item a:hover { 
     color: #ffffff !important; 
+    text-decoration: none !important;
     padding: 0 15px; 
     height: 80px !important; 
     display: flex !important; 
     align-items: center !important;
-    cursor: pointer;
     font-size: 14px;
     font-weight: 500;
+    cursor: pointer;
 }
 
-/* THE 25PX SIGN-IN FIX */
+/* --- 3. SIGN IN / ACCOUNT ALIGNMENT (25px FIX) --- */
 #header-right a.login-link,
 #header-right .header-login-button,
 #header-right #header-drop,
 #header-right .header-dropdown-button {
     display: inline-block !important;
-    padding-top: 25px !important; /* Forces vertical centering in the 80px bar */
+    padding-top: 25px !important; /* Your manual centering fix */
     height: 80px !important;
     color: #ffffff !important;
     box-sizing: border-box !important;
+    text-decoration: none !important;
 }
 
-/* User avatar/icon alignment */
-#header-right .sj-icon-user, #header-right #header-drop img {
+/* Force the Profile Icon/Avatar to be visible */
+#header-right .sj-icon-user, 
+#header-right #header-drop img {
     color: #ffffff !important;
     vertical-align: middle !important;
 }
 
-/* --- 3. CUSTOM DROPDOWNS --- */
+/* --- 4. DROPDOWN BOXES --- */
 .tw-dropdown { 
     display: none; 
     position: absolute; 
@@ -72,32 +80,22 @@ body, h1, h2, h3, h4, h5, h6, p, span, a, button, input, select, textarea, li {
 }
 
 .tw-nav-item:hover .tw-dropdown { display: flex !important; }
-.tw-dropdown a { color: #ffffff !important; padding: 12px 20px !important; display: block; width: 100%; text-decoration: none !important; }
+
+.tw-dropdown a { 
+    color: #ffffff !important; 
+    padding: 12px 20px !important; 
+    display: block !important; 
+    width: 100% !important; 
+}
+
 .tw-dropdown a:hover { background: #1A6AFF !important; }
 
-/* --- 4. TILE STYLING (MATCHING YOUR OTHER THEME) --- */
-/* This makes tiles white with shadows and dark text */
+/* --- 5. TILE STYLING (MODERN WHITE) --- */
 :not(.search):not(.list-view) > #catalog-content a.coursebox-container {
     border: none !important;
     border-radius: 8px !important;
     box-shadow: 0 6px 12px 1px rgba(0,0,0,.1) !important;
     transition: transform 0.3s ease !important;
     background-color: #ffffff !important;
-    padding: 10px 10px 50px 10px !important;
-    width: 280px !important;
-}
-
-:not(.search):not(.list-view) > #catalog-content a.coursebox-container:hover {
-    transform: translateY(-5px) !important;
-    border-bottom: 2px solid #1A6AFF !important;
-}
-
-#skilljar-content .coursebox-container .coursebox-text { color: #282f38 !important; font-weight: 700 !important; }
-#skilljar-content .coursebox-container .coursebox-text-description { color: #5a697c !important; }
-
-/* --- 5. MOBILE RESPONSIVENESS --- */
-@media (max-width: 768px) {
-    #header, .headerheight { height: 60px !important; }
-    .tw-custom-nav { display: none !important; }
-    #header-right a.login-link { padding-top: 15px !important; height: 60px !important; }
+    margin: 15px !important;
 }
