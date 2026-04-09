@@ -1,5 +1,5 @@
 /* ========================================= */
-/* TACTICAL ENABLEMENT - MASTER STYLESHEET   */
+/* TACTICAL ENABLEMENT - CLEAN MASTER CSS    */
 /* ========================================= */
 
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
@@ -9,93 +9,57 @@ body, h1, h2, h3, h4, h5, h6, p, span, a, button, input, select, textarea, li {
     font-family: 'Manrope', sans-serif !important; 
 }
 
-/* --- 2. HEADER & NAVIGATION (80px) --- */
+/* --- 2. HEADER BASE STYLING --- */
+/* We are letting Skilljar determine the height now, but forcing the background black */
 #header {
     background-color: #000000 !important;
-    height: 80px !important;
+    border-bottom: 1px solid rgba(255,255,255,0.1) !important;
 }
 
-#header .headerheight, 
-#header .header-left, 
-#header #header-right {
-    height: 80px !important;
+/* Force all links in the header (Native Nav + Sign In) to be White */
+#header a, 
+#header .header-link, 
+#header .login-link,
+#header .header-dropdown-button-v2 {
+    color: #ffffff !important;
+    text-decoration: none !important;
+    transition: opacity 0.2s ease;
+}
+
+#header a:hover {
+    opacity: 0.8;
+}
+
+/* --- 3. SIGN IN / ACCOUNT ALIGNMENT --- */
+/* Removing the 80px restriction and using flex centering on the native container */
+#header-right {
     display: flex !important;
     align-items: center !important;
+    justify-content: flex-end !important;
 }
 
-.tw-custom-nav { 
-    display: flex !important; 
-    height: 80px !important;
-    margin-right: 20px; 
-}
-
-/* Force Nav Links to be White (Overrides Skilljar Blue) */
-.tw-nav-item, 
-.tw-nav-item a, 
-.tw-nav-item a:visited, 
-.tw-nav-item a:hover { 
-    color: #ffffff !important; 
-    text-decoration: none !important;
-    padding: 0 15px; 
-    height: 80px !important; 
-    display: flex !important; 
+/* Vertical centering for the specific Sign In / Profile button */
+#header .login-link,
+#header .header-dropdown-button-v2 {
+    display: flex !important;
     align-items: center !important;
-    font-size: 14px;
-    font-weight: 500;
-    cursor: pointer;
+    margin: 0 !important;
+    height: 100% !important;
 }
 
-/* --- 3. SIGN IN / ACCOUNT ALIGNMENT (25px FIX) --- */
-#header-right a.login-link,
-#header-right .header-login-button,
-#header-right #header-drop,
-#header-right .header-dropdown-button {
-    display: inline-block !important;
-    padding-top: 25px !important; /* Your manual centering fix */
-    height: 80px !important;
-    color: #ffffff !important;
-    box-sizing: border-box !important;
-    text-decoration: none !important;
-}
-
-/* Force the Profile Icon/Avatar to be visible */
+/* Force the Profile Icon to be visible */
 #header-right .sj-icon-user, 
 #header-right #header-drop img {
     color: #ffffff !important;
     vertical-align: middle !important;
+    margin-right: 5px !important;
 }
 
-/* --- 4. DROPDOWN BOXES --- */
-.tw-dropdown { 
-    display: none; 
-    position: absolute; 
-    top: 80px; 
-    left: 0; 
-    background: #111111; 
-    border: 1px solid rgba(255,255,255,0.2); 
-    min-width: 200px; 
-    z-index: 999999; 
-    flex-direction: column; 
-    padding: 10px 0; 
-}
-
-.tw-nav-item:hover .tw-dropdown { display: flex !important; }
-
-.tw-dropdown a { 
-    color: #ffffff !important; 
-    padding: 12px 20px !important; 
-    display: block !important; 
-    width: 100% !important; 
-}
-
-.tw-dropdown a:hover { background: #1A6AFF !important; }
-
-/* --- 5. TILE STYLING (MODERN WHITE) --- */
+/* --- 4. TILE STYLING (MODERN WHITE) --- */
 :not(.search):not(.list-view) > #catalog-content a.coursebox-container {
     border: none !important;
     border-radius: 8px !important;
     box-shadow: 0 6px 12px 1px rgba(0,0,0,.1) !important;
-    transition: transform 0.3s ease !important;
     background-color: #ffffff !important;
     margin: 15px !important;
 }
