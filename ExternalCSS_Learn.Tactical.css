@@ -20,17 +20,18 @@ body, h1, h2, h3, h4, h5, h6, div, p, span, a, button, input, select, textarea, 
     text-decoration: none !important;
 }
 
-/* --- 3. CATALOG BLACKOUT (SPECIFIC TO YOUR SCREENSHOT) --- */
-/* This targets the exact classes shown in your inspector screenshot */
+/* --- 3. CATALOG BLACKOUT (INCLUDING TILE WRAPPER) --- */
+/* Target the catalog specifically using the body class and the wrapper you identified */
 body[class*="sj-page-catalog"] #skilljar-content,
 body[class*="sj-page-catalog"] .white-bg-v2,
 body[class*="sj-page-catalog"] .grey-bg-d05,
-.sj-page-catalog-root #skilljar-content.white-bg-v2 {
+body[class*="sj-page-catalog"] .catalog-tile-wrapper,
+.sj-page-catalog-root #skilljar-content {
     background-color: #000000 !important;
     background: #000000 !important;
 }
 
-/* Targets the top row padding areas on Catalog pages */
+/* Ensure the top row also matches the blackout on catalog pages */
 body[class*="sj-page-catalog"] .top-row, 
 body[class*="sj-page-catalog"] .top-row-white-v2, 
 body[class*="sj-page-catalog"] .sj-grey-bg-v2 {
@@ -50,7 +51,7 @@ body[class*="sj-page-catalog"] sjwc-catalog-tile {
 body[class*="sj-page-catalog"] sjwc-catalog-tile h2[slot="title"] { color: #ffffff !important; }
 body[class*="sj-page-catalog"] sjwc-catalog-tile p[slot="description"] { color: rgba(255, 255, 255, 0.9) !important; }
 
-/* --- 5. SIGN IN / ACCOUNT ALIGNMENT (FLEXBOX CENTERING) --- */
+/* --- 5. SIGN IN / ACCOUNT ALIGNMENT --- */
 #header-right {
     height: 80px !important;
     display: flex !important;
@@ -58,14 +59,16 @@ body[class*="sj-page-catalog"] sjwc-catalog-tile p[slot="description"] { color: 
     justify-content: flex-end !important;
 }
 
-/* This forces the text to align to the middle of the 80px header */
+/* Use flexbox to center the text regardless of Skilljar's internal padding */
 #header .login-link,
 #header .header-dropdown-button-v2 {
     display: flex !important;
     align-items: center !important;
+    justify-content: center !important;
     height: 80px !important;
     padding: 0 20px !important;
     margin: 0 !important;
+    line-height: 1 !important; /* Resetting line-height stops text from floating high */
 }
 
 #header-right .sj-icon-user, 
