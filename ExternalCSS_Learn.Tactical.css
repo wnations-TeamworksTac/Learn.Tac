@@ -169,3 +169,30 @@ sjwc-catalog-tile img[slot="image"],
         max-height: none !important;
     }
 }
+
+/* --- FINAL SIGN IN VERTICAL ALIGNMENT --- */
+#header-right a.login-link,
+#header-right .header-login-button,
+#header-right #header-drop,
+#header-right .header-dropdown-button {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    
+    height: 80px !important;      /* Matches the rest of the nav */
+    line-height: 80px !important; /* Forces the text to the vertical center */
+    
+    margin: 0 !important;
+    padding: 0 20px !important;
+    vertical-align: middle !important;
+    
+    position: relative !important;
+    top: 0 !important; /* Resets any 'top' push from core CSS */
+}
+
+/* Ensure the text inside doesn't have a top margin */
+#header-right a.login-link span,
+#header-right .header-login-button span {
+    margin-top: 0 !important;
+    display: inline-block !important;
+}
