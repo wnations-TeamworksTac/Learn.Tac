@@ -124,3 +124,32 @@ sjwc-catalog-tile:hover {
     .tw-text-group h1 { font-size: 32px !important; }
     .tw-header-text h2 { font-size: 28px !important; }
 }
+
+/* --- PERMANENT TILE BLACKOUT --- */
+
+/* 1. Target the specific class you found inside the tile */
+.catalog-tile {
+    background-color: #000000 !important;
+    background: #000000 !important;
+}
+
+/* 2. Kill the white background variable Skilljar is using */
+sjwc-catalog-tile, 
+sjwc-context-provider {
+    --511f908c: #000000 !important; /* This is the background variable you found */
+    --tile-background-color: #000000 !important;
+    
+    /* Text Color Variables from your discovery */
+    --06e27304: #ffffff !important; /* Title color */
+    --8a5a25a0: #ffffff !important; /* Description color */
+    
+    /* Border Variables */
+    --3676d864: #ffffff !important; /* The border color */
+    --47453772: 1px !important;    /* Border width */
+}
+
+/* 3. Handle the Hover state from the code you found */
+.catalog-tile-wrapper:hover .catalog-tile {
+    border-color: #4CAF50 !important;
+    --537824e4: #4CAF50 !important; /* The hover variable you found */
+}
