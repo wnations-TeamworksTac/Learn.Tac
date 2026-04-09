@@ -5,26 +5,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
 
 /* --- 1. GLOBAL BACKGROUND (BEHIND CARDS) --- */
-html, body, #main-container, #skilljar-content {
-    /* This puts the WebP image behind the cards only */
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-                url('https://teamworks.com/wp-content/uploads/v2_Home-Hero-Back-1-5-scaled.webp') !important;
-  
-    background-attachment: fixed !important;
-    background-size: cover !important;
-    background-position: center !important;
-    background-repeat: no-repeat !important;
-}
+
 
 body, h1, h2, h3, h4, h5, h6, p, a, button, input, textarea, li { 
     font-family: 'Manrope', sans-serif !important; 
-}
-
-/* Make inner containers transparent so the global background image shows through */
-.top-row, .top-row-white-v2, .top-row-grey, .sj-grey-bg-v2 {
-    background-color: transparent !important;
-    background: transparent !important;
-    border-bottom: 1px solid rgba(255,255,255,0.1) !important;
 }
 
 /* --- 2. HEADER (STRICT BLACK) --- */
