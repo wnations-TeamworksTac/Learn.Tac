@@ -1,5 +1,5 @@
 /* ========================================= */
-/* TACTICAL ENABLEMENT - MASTER STYLESHEET   */
+/* TACTICAL ENABLEMENT - REFINED MASTER CSS  */
 /* ========================================= */
 
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
@@ -12,49 +12,46 @@ body, h1, h2, h3, h4, h5, h6, p, span, a, button, input, select, textarea, li {
 /* --- 2. HEADER BASE STYLES (BLACK) --- */
 #header {
     background-color: #000000 !important;
-    border-bottom: 1px solid rgba(255,255,255,0.1) !important;
+    height: 80px !important;
 }
 
-#header a, #header .header-link, #header .login-link, #header .header-dropdown-button-v2 {
+#header .header-link, #header .login-link, #header .header-dropdown-button-v2 {
     color: #ffffff !important;
     text-decoration: none !important;
 }
 
-/* --- 3. CATALOG-ONLY BLACKOUT --- */
-/* This ONLY triggers on the main course catalog page */
-.sj-page-catalog-root, 
-.sj-page-catalog-root #main-container, 
-.sj-page-catalog-root #skilljar-content {
+/* --- 3. CATALOG-STYLE BLACKOUT --- */
+/* Target catalog pages more broadly to ensure we catch the root */
+body[class*="sj-page-catalog"] #main-container, 
+body[class*="sj-page-catalog"] #skilljar-content,
+.sj-page-catalog-root #main-container {
     background-color: #000000 !important;
-    background: #000000 !important;
 }
 
-/* Ensure the top row on the catalog is also black */
-.sj-page-catalog-root .top-row, 
-.sj-page-catalog-root .top-row-white-v2, 
-.sj-page-catalog-root .top-row-grey, 
-.sj-page-catalog-root .sj-grey-bg-v2 {
+/* Ensure top sections on catalog pages are also black */
+body[class*="sj-page-catalog"] .top-row, 
+body[class*="sj-page-catalog"] .top-row-white-v2, 
+body[class*="sj-page-catalog"] .sj-grey-bg-v2 {
     background-color: #000000 !important;
     border-bottom: 1px solid rgba(255,255,255,0.1) !important;
 }
 
 /* --- 4. CATALOG TILE STYLING (BLACK CARDS) --- */
-/* Target tiles specifically on the catalog root */
-.sj-page-catalog-root sjwc-catalog-tile {
+body[class*="sj-page-catalog"] sjwc-catalog-tile {
     display: block !important;
     background-color: #000000 !important;
     border: 1px solid #ffffff !important;
     border-radius: 16px !important;
     height: 380px !important;
-    margin: 15px !important;
 }
 
-/* Slot text colors for catalog tiles */
-.sj-page-catalog-root sjwc-catalog-tile h2[slot="title"] { color: #ffffff !important; }
-.sj-page-catalog-root sjwc-catalog-tile p[slot="description"] { color: rgba(255, 255, 255, 0.9) !important; }
+/* Text colors for black tiles */
+body[class*="sj-page-catalog"] sjwc-catalog-tile h2[slot="title"] { color: #ffffff !important; }
+body[class*="sj-page-catalog"] sjwc-catalog-tile p[slot="description"] { color: rgba(255, 255, 255, 0.9) !important; }
 
-/* --- 5. SIGN IN / ACCOUNT ALIGNMENT --- */
+/* --- 5. SIGN IN / ACCOUNT ALIGNMENT (ABSOLUTE FIX) --- */
 #header-right {
+    height: 80px !important;
     display: flex !important;
     align-items: center !important;
 }
@@ -63,9 +60,10 @@ body, h1, h2, h3, h4, h5, h6, p, span, a, button, input, select, textarea, li {
 #header .header-dropdown-button-v2 {
     display: flex !important;
     align-items: center !important;
-    height: 100% !important;
-    margin: 0 !important;
+    height: 80px !important;
     padding: 0 20px !important;
+    margin: 0 !important;
+    line-height: normal !important;
 }
 
 #header-right .sj-icon-user, 
