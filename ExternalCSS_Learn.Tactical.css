@@ -5,24 +5,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
 
 /* --- 1. GLOBAL SETTINGS --- */
-body, h1, h2, h3, h4, h5, h6, p, a, button, input, textarea, li { 
+body, h1, h2, h3, h4, h5, h6, p, span, a, button, input, select, textarea, li { 
     font-family: 'Manrope', sans-serif !important; 
 }
 
-/* --- 2. HEADER & NAVIGATION SIZING --- */
-#header, 
-#header .headerheight, 
-#header #header-right {
+/* --- 2. HEADER & NAVIGATION (80px) --- */
+#header {
     background-color: #000000 !important;
     height: 80px !important;
-    min-height: 80px !important;
+    border-bottom: 1px solid rgba(255,255,255,0.1) !important;
+}
+
+#header .headerheight, #header .header-left, #header #header-right {
+    height: 80px !important;
     display: flex !important;
     align-items: center !important;
 }
 
 .tw-custom-nav { 
     display: flex !important; 
-    align-items: center !important; 
     height: 80px !important;
     margin-right: 20px; 
 }
@@ -33,38 +34,70 @@ body, h1, h2, h3, h4, h5, h6, p, a, button, input, textarea, li {
     height: 80px !important; 
     display: flex !important; 
     align-items: center !important;
+    cursor: pointer;
     font-size: 14px;
     font-weight: 500;
 }
 
-.tw-nav-item a { color: inherit; text-decoration: none; }
-
-/* --- 3. SIGN IN / ACCOUNT ALIGNMENT (THE 25PX FIX) --- */
+/* THE 25PX SIGN-IN FIX */
 #header-right a.login-link,
 #header-right .header-login-button,
 #header-right #header-drop,
 #header-right .header-dropdown-button {
     display: inline-block !important;
+    padding-top: 25px !important; /* Forces vertical centering in the 80px bar */
     height: 80px !important;
-    padding-top: 25px !important; /* Your manual fix to lower the text */
-    padding-left: 20px !important;
-    padding-right: 20px !important;
     color: #ffffff !important;
-    text-decoration: none !important;
     box-sizing: border-box !important;
 }
 
-/* Force the Profile Icon to be white so it doesn't vanish on the black header */
-#header-right .sj-icon-user, 
-#header-right #header-drop img {
+/* User avatar/icon alignment */
+#header-right .sj-icon-user, #header-right #header-drop img {
     color: #ffffff !important;
     vertical-align: middle !important;
 }
 
-/* Dark dropdown boxes (optional, remove if you want white menus) */
-#header #header-drop, .tw-dropdown {
-    background-color: #111111 !important;
-    border: 1px solid rgba(255,255,255,0.2) !important;
+/* --- 3. CUSTOM DROPDOWNS --- */
+.tw-dropdown { 
+    display: none; 
+    position: absolute; 
+    top: 80px; 
+    left: 0; 
+    background: #111111; 
+    border: 1px solid rgba(255,255,255,0.2); 
+    min-width: 200px; 
+    z-index: 999999; 
+    flex-direction: column; 
+    padding: 10px 0; 
+}
+
+.tw-nav-item:hover .tw-dropdown { display: flex !important; }
+.tw-dropdown a { color: #ffffff !important; padding: 12px 20px !important; display: block; width: 100%; text-decoration: none !important; }
+.tw-dropdown a:hover { background: #1A6AFF !important; }
+
+/* --- 4. TILE STYLING (MATCHING YOUR OTHER THEME) --- */
+/* This makes tiles white with shadows and dark text */
+:not(.search):not(.list-view) > #catalog-content a.coursebox-container {
+    border: none !important;
     border-radius: 8px !important;
-    top: 80px !important;
+    box-shadow: 0 6px 12px 1px rgba(0,0,0,.1) !important;
+    transition: transform 0.3s ease !important;
+    background-color: #ffffff !important;
+    padding: 10px 10px 50px 10px !important;
+    width: 280px !important;
+}
+
+:not(.search):not(.list-view) > #catalog-content a.coursebox-container:hover {
+    transform: translateY(-5px) !important;
+    border-bottom: 2px solid #1A6AFF !important;
+}
+
+#skilljar-content .coursebox-container .coursebox-text { color: #282f38 !important; font-weight: 700 !important; }
+#skilljar-content .coursebox-container .coursebox-text-description { color: #5a697c !important; }
+
+/* --- 5. MOBILE RESPONSIVENESS --- */
+@media (max-width: 768px) {
+    #header, .headerheight { height: 60px !important; }
+    .tw-custom-nav { display: none !important; }
+    #header-right a.login-link { padding-top: 15px !important; height: 60px !important; }
 }
