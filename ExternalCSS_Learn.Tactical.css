@@ -48,3 +48,15 @@ sjwc-catalog-tile p[slot="description"] { color: rgba(255, 255, 255, 0.9) !impor
 #header-right { display: flex !important; align-items: center !important; }
 #header-right #header-drop, #header-right .header-dropdown-button { display: flex !important; align-items: center !important; margin-top: 0 !important; padding-top: 0 !important; height: 100% !important; }
 #header-right #header-drop img, #header-right #header-drop .sj-icon-user { margin-top: 0 !important; transform: translateY(6px) !important; vertical-align: middle !important; }
+
+/* --- Fix for Native Sign In Button Alignment --- */
+#header-right a[href*="login"],
+#header-right .header-login-button {
+    display: inline-flex !important;
+    align-items: center !important;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    align-self: center !important;
+    height: 80px !important; /* Matches the height of your tw-nav-items */
+    color: #ffffff !important; /* Ensures it stays visible */
+}
