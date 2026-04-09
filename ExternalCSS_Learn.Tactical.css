@@ -1,11 +1,11 @@
 /* ========================================= */
-/* TACTICAL ENABLEMENT - REFINED MASTER CSS  */
+/* TACTICAL ENABLEMENT - MASTER STYLESHEET   */
 /* ========================================= */
 
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
 
 /* --- 1. GLOBAL TYPOGRAPHY --- */
-body, h1, h2, h3, h4, h5, h6, p, span, a, button, input, select, textarea, li { 
+body, h1, h2, h3, h4, h5, h6, div, p, span, a, button, input, select, textarea, li { 
     font-family: 'Manrope', sans-serif !important; 
 }
 
@@ -15,20 +15,22 @@ body, h1, h2, h3, h4, h5, h6, p, span, a, button, input, select, textarea, li {
     height: 80px !important;
 }
 
-#header .header-link, #header .login-link, #header .header-dropdown-button-v2 {
+#header a, #header .header-link, #header .login-link, #header .header-dropdown-button-v2 {
     color: #ffffff !important;
     text-decoration: none !important;
 }
 
-/* --- 3. CATALOG-STYLE BLACKOUT --- */
-/* Target catalog pages more broadly to ensure we catch the root */
-body[class*="sj-page-catalog"] #main-container, 
+/* --- 3. CATALOG BLACKOUT (SPECIFIC TO YOUR SCREENSHOT) --- */
+/* This targets the exact classes shown in your inspector screenshot */
 body[class*="sj-page-catalog"] #skilljar-content,
-.sj-page-catalog-root #main-container {
+body[class*="sj-page-catalog"] .white-bg-v2,
+body[class*="sj-page-catalog"] .grey-bg-d05,
+.sj-page-catalog-root #skilljar-content.white-bg-v2 {
     background-color: #000000 !important;
+    background: #000000 !important;
 }
 
-/* Ensure top sections on catalog pages are also black */
+/* Targets the top row padding areas on Catalog pages */
 body[class*="sj-page-catalog"] .top-row, 
 body[class*="sj-page-catalog"] .top-row-white-v2, 
 body[class*="sj-page-catalog"] .sj-grey-bg-v2 {
@@ -45,17 +47,18 @@ body[class*="sj-page-catalog"] sjwc-catalog-tile {
     height: 380px !important;
 }
 
-/* Text colors for black tiles */
 body[class*="sj-page-catalog"] sjwc-catalog-tile h2[slot="title"] { color: #ffffff !important; }
 body[class*="sj-page-catalog"] sjwc-catalog-tile p[slot="description"] { color: rgba(255, 255, 255, 0.9) !important; }
 
-/* --- 5. SIGN IN / ACCOUNT ALIGNMENT (ABSOLUTE FIX) --- */
+/* --- 5. SIGN IN / ACCOUNT ALIGNMENT (FLEXBOX CENTERING) --- */
 #header-right {
     height: 80px !important;
     display: flex !important;
     align-items: center !important;
+    justify-content: flex-end !important;
 }
 
+/* This forces the text to align to the middle of the 80px header */
 #header .login-link,
 #header .header-dropdown-button-v2 {
     display: flex !important;
@@ -63,7 +66,6 @@ body[class*="sj-page-catalog"] sjwc-catalog-tile p[slot="description"] { color: 
     height: 80px !important;
     padding: 0 20px !important;
     margin: 0 !important;
-    line-height: normal !important;
 }
 
 #header-right .sj-icon-user, 
