@@ -4,6 +4,34 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
 
+/* --- THE NUCLEAR BLACKOUT OVERRIDE --- */
+
+/* 1. Kill the white body background */
+html, body, #main-container {
+    background-color: #000000 !important;
+    background: #000000 !important;
+}
+
+/* 2. Kill the 'skilljar-content' grey/white background */
+#skilljar-content {
+    background-color: #000000 !important;
+    background: #000000 !important;
+}
+
+/* 3. Kill the Catalog specific container backgrounds */
+.sj-page-catalog #main-container, 
+.sj-page-catalog #skilljar-content,
+.sj-page-catalog-root #main-container {
+    background-color: #000000 !important;
+    background-image: none !important;
+}
+
+/* 4. Fix the white 'top-row' padding areas */
+.top-row, .top-row-white-v2, .top-row-grey {
+    background-color: #000000 !important;
+    border-bottom: 1px solid rgba(255,255,255,0.1) !important;
+}
+
 /* --- 1. RESPONSIVE GLOBAL SETTINGS --- */
 html, body {
     max-width: 100vw;
