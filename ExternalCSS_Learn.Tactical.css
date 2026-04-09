@@ -1,128 +1,44 @@
-/* ========================================= */
-/* TACTICAL ENABLEMENT - MASTER STYLESHEET   */
-/* ========================================= */
+<link rel="stylesheet" href="https://public.sj-cdn.net/sse/skilljar_walkthrough_lite.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/wnations-TeamworksTac/Learn.Tac/ExternalCSS_Learn.Tactical.css">
 
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+<script>
+  $(document).ready(function() {
+    // 1. Inject Custom Nav
+    if (!$('.tw-custom-nav').length) {
+      var navHtml = `
+        <div class="tw-custom-nav">
+          <div class="tw-nav-item"><a href="/">Home</a></div>
+          <div class="tw-nav-item">
+            <span>Product <i class="fa fa-caret-down" style="font-size:10px; margin-left:4px;"></i></span>
+            <div class="tw-dropdown">
+              <a href="/page/teamworks">Hub</a>
+              <a href="https://academy.smartabase.com/" target="_blank">AMS</a>
+              <a href="/page/nutrition">Nutrition</a>
+            </div>
+          </div>
+          <div class="tw-nav-item"><a href="/accounts/profile/">My Learning</a></div>
+        </div>
+      `;
+      $('#header-right').prepend(navHtml);
+    }
 
-/* --- 1. GLOBAL BACKGROUND (BEHIND CARDS) --- */
+    // 2. The Tile Enforcer (Keep tiles dark even if bg is white)
+    function enforceTileTheme() {
+        const tiles = document.querySelectorAll('sjwc-catalog-tile');
+        tiles.forEach(tile => {
+            tile.style.setProperty('--511f908c', '#000000', 'important');
+            tile.style.setProperty('--tile-background-color', '#000000', 'important');
+            tile.style.setProperty('--06e27304', '#ffffff', 'important');
+            tile.style.setProperty('--8a5a25a0', '#ffffff', 'important');
+            tile.style.setProperty('height', '380px', 'important');
+        });
+    }
 
-
-body, h1, h2, h3, h4, h5, h6, p, a, button, input, textarea, li { 
-    font-family: 'Manrope', sans-serif !important; 
-}
-
-/* --- 2. HEADER (STRICT BLACK) --- */
-/* This prevents the global background image from leaking into the header */
-#header, 
-#header .headerheight, 
-#header .header-left, 
-#header #header-right {
-    background-color: #000000 !important;
-    background-image: none !important; /* Forces the header to stay black */
-    height: 80px !important;
-    min-height: 80px !important;
-    display: flex !important;
-    align-items: center !important;
-    border-bottom: 1px solid rgba(255,255,255,0.1) !important;
-}
-
-/* --- 3. CUSTOM NAV & SIGN IN ALIGNMENT --- */
-.tw-custom-nav { 
-    display: flex !important; 
-    align-items: center !important; 
-    height: 80px !important;
-    margin-right: 20px; 
-}
-
-.tw-nav-item { 
-    position: relative;
-    color: #ffffff !important; 
-    padding: 0 15px; 
-    height: 80px !important; 
-    display: flex !important; 
-    align-items: center !important;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: 500;
-}
-
-.tw-dropdown { 
-    display: none; 
-    position: absolute; 
-    top: 80px; 
-    left: 0; 
-    background: #111111 !important; 
-    border: 1px solid rgba(255,255,255,0.2) !important; 
-    min-width: 200px; 
-    z-index: 999999 !important; 
-    flex-direction: column; 
-    padding: 10px 0; 
-}
-
-.tw-nav-item:hover .tw-dropdown { display: flex !important; }
-.tw-dropdown a { color: #ffffff !important; padding: 12px 20px !important; display: block; width: 100%; text-decoration: none; }
-.tw-dropdown a:hover { background: #1A6AFF !important; }
-
-/* SIGN IN BUTTON CENTERING */
-#header-right a.login-link,
-#header-right .header-login-button,
-#header-right #header-drop,
-#header-right .header-dropdown-button,
-#header-right .header-dropdown-button-v2 {
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    height: 80px !important;
-    margin: 0 !important;
-    padding: 0 20px !important;
-    padding-top: 0 !important;
-    margin-top: 0 !important;
-    color: #ffffff !important;
-    line-height: 80px !important;
-    text-decoration: none !important;
-}
-
-#header-right #header-drop img { border-radius: 50%; width: 30px; height: 30px; }
-
-/* --- 4. COURSE TILES --- */
-sjwc-catalog-tile {
-    display: block !important;
-    height: 380px !important;
-    min-height: 380px !important;
-    max-height: 380px !important;
-    border-radius: 16px !important;
-    overflow: hidden !important;
-    background-color: #000000 !important;
-    border: 1px solid #ffffff !important;
-    margin: 15px !important;
-    --511f908c: #000000 !important; 
-    --tile-background-color: #000000 !important;
-    --06e27304: #ffffff !important; 
-    --8a5a25a0: #ffffff !important; 
-    --3676d864: #ffffff !important; 
-}
-
-.catalog-tile { background-color: #000000 !important; height: 100% !important; }
-sjwc-catalog-tile h2[slot="title"] { color: #ffffff !important; }
-sjwc-catalog-tile p[slot="description"] { 
-    color: rgba(255, 255, 255, 0.9) !important;
-    display: -webkit-box !important;
-    -webkit-line-clamp: 2 !important;
-    -webkit-box-orient: vertical !important;
-    overflow: hidden;
-}
-
-sjwc-catalog-tile:hover { border-color: #4CAF50 !important; --537824e4: #4CAF50 !important; }
-sjwc-catalog-tile img[slot="image"], .catalog-tile__img-wrapper {
-    height: 140px !important;
-    object-fit: contain !important;
-    padding: 15px !important;
-}
-
-/* --- 5. MOBILE RESPONSIVENESS --- */
-@media (max-width: 768px) {
-    #header, .headerheight, #header-right { height: 60px !important; min-height: 60px !important; }
-    .tw-custom-nav { display: none !important; }
-    #header-right a.login-link, #header-right #header-drop { height: 60px !important; line-height: 60px !important; }
-    sjwc-catalog-tile { width: calc(100% - 30px) !important; height: auto !important; max-height: none !important; }
-}
+    let timer = 0;
+    const forceInterval = setInterval(() => {
+        enforceTileTheme();
+        timer++;
+        if (timer > 15) clearInterval(forceInterval);
+    }, 200);
+  });
+</script>
