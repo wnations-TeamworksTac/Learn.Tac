@@ -9,7 +9,7 @@ html, body, #main-container, #skilljar-content {
     /* This puts the WebP image behind the cards only */
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
                 url('https://teamworks.com/wp-content/uploads/v2_Home-Hero-Back-1-5-scaled.webp') !important;
-    background-color: #000000 !important;
+  
     background-attachment: fixed !important;
     background-size: cover !important;
     background-position: center !important;
