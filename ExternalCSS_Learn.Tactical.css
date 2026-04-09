@@ -20,19 +20,18 @@ body, h1, h2, h3, h4, h5, h6, div, p, span, a, button, input, select, textarea, 
     text-decoration: none !important;
 }
 
-/* --- 3. CATALOG WRAPPER BLACKOUT --- */
-/* Targeting every container found in your recent inspections */
+/* --- 3. CATALOG BLACKOUT (SPECIFIC TO YOUR CODE) --- */
+/* Target the exact classes you found: grey-bg-d05 and white-bg-v2 */
 body[class*="sj-page-catalog"] #skilljar-content,
-body[class*="sj-page-catalog"] .catalog-tile-wrapper,
-body[class*="sj-page-catalog"] .catalog-tile-wrapper__content__tiles,
-body[class*="sj-page-catalog"] .sjwc-catalog-tile-platform-wrapper,
 body[class*="sj-page-catalog"] .white-bg-v2,
-body[class*="sj-page-catalog"] .grey-bg-d05 {
+body[class*="sj-page-catalog"] .grey-bg-d05,
+body[class*="sj-page-catalog"] .catalog-tile-wrapper,
+body[class*="sj-page-catalog"] .sjwc-catalog-tile-platform-wrapper {
     background-color: #000000 !important;
     background: #000000 !important;
 }
 
-/* Ensure the top row also matches the blackout on catalog pages */
+/* Fix for the top-row padding areas on Catalog */
 body[class*="sj-page-catalog"] .top-row, 
 body[class*="sj-page-catalog"] .top-row-white-v2, 
 body[class*="sj-page-catalog"] .sj-grey-bg-v2 {
@@ -40,7 +39,7 @@ body[class*="sj-page-catalog"] .sj-grey-bg-v2 {
     border-bottom: 1px solid rgba(255,255,255,0.1) !important;
 }
 
-/* --- 4. CATALOG TILE STYLING (BLACK CARDS) --- */
+/* --- 4. CATALOG TILE STYLING --- */
 body[class*="sj-page-catalog"] sjwc-catalog-tile {
     display: block !important;
     background-color: #000000 !important;
@@ -52,7 +51,19 @@ body[class*="sj-page-catalog"] sjwc-catalog-tile {
 body[class*="sj-page-catalog"] sjwc-catalog-tile h2[slot="title"] { color: #ffffff !important; }
 body[class*="sj-page-catalog"] sjwc-catalog-tile p[slot="description"] { color: rgba(255, 255, 255, 0.9) !important; }
 
-/* --- 5. MOBILE RESPONSIVENESS --- */
-@media (max-width: 768px) {
-    #header { height: 60px !important; }
+/* --- 5. SIGN IN ALIGNMENT (FORCE FLEXBOX) --- */
+#header-right {
+    height: 80px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+}
+
+#header .login-link,
+#header .header-dropdown-button-v2 {
+    display: flex !important;
+    align-items: center !important;
+    height: 80px !important;
+    margin: 0 !important;
+    padding: 0 20px !important;
 }
