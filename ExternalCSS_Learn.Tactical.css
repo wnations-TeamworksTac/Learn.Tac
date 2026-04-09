@@ -1,5 +1,5 @@
 /* ========================================= */
-/* TACTICAL ENABLEMENT - CLEAN MASTER CSS    */
+/* TACTICAL ENABLEMENT - MASTER STYLESHEET   */
 /* ========================================= */
 
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
@@ -21,16 +21,18 @@ body, h1, h2, h3, h4, h5, h6, div, p, span, a, button, input, select, textarea, 
 }
 
 /* --- 3. CATALOG WRAPPER BLACKOUT --- */
-/* Targeted blackout including the justified wrapper class */
+/* Targeting every container found in your recent inspections */
 body[class*="sj-page-catalog"] #skilljar-content,
 body[class*="sj-page-catalog"] .catalog-tile-wrapper,
-body[class*="sj-page-catalog"] .catalog-tile-wrapper__content__tiles.justify-content-center,
+body[class*="sj-page-catalog"] .catalog-tile-wrapper__content__tiles,
+body[class*="sj-page-catalog"] .sjwc-catalog-tile-platform-wrapper,
 body[class*="sj-page-catalog"] .white-bg-v2,
 body[class*="sj-page-catalog"] .grey-bg-d05 {
     background-color: #000000 !important;
     background: #000000 !important;
 }
 
+/* Ensure the top row also matches the blackout on catalog pages */
 body[class*="sj-page-catalog"] .top-row, 
 body[class*="sj-page-catalog"] .top-row-white-v2, 
 body[class*="sj-page-catalog"] .sj-grey-bg-v2 {
@@ -53,5 +55,4 @@ body[class*="sj-page-catalog"] sjwc-catalog-tile p[slot="description"] { color: 
 /* --- 5. MOBILE RESPONSIVENESS --- */
 @media (max-width: 768px) {
     #header { height: 60px !important; }
-    #header-right, #header-right .login-link { height: 60px !important; }
 }
