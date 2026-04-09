@@ -188,3 +188,16 @@ sjwc-catalog-tile h2[slot="title"] {
     margin-top: 0 !important;
     font-size: 18px !important; /* Slightly smaller font to save space */
 }
+/* --- TIGHTEN TILE HEIGHT --- */
+sjwc-catalog-tile {
+    display: block !important; /* Critical for height to work on custom elements */
+    height: 380px !important; 
+    min-height: 380px !important;
+    max-height: 380px !important;
+}
+
+/* Ensure the internal content box doesn't force it to grow */
+.catalog-tile {
+    height: 100% !important;
+    max-height: 380px !important;
+}
