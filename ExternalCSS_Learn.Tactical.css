@@ -179,6 +179,7 @@ sjwc-catalog-tile img[slot="image"],
     align-items: center !important;
     justify-content: center !important;
     
+    
     height: 80px !important;      /* Matches the rest of the nav */
     line-height: 80px !important; /* Forces the text to the vertical center */
     
@@ -188,6 +189,10 @@ sjwc-catalog-tile img[slot="image"],
     
     position: relative !important;
     top: 0 !important; /* Resets any 'top' push from core CSS */
+}
+#header .login-link {
+    padding: 23px 20px;
+    margin-right: 8px;
 }
 
 /* Ensure the text inside doesn't have a top margin */
