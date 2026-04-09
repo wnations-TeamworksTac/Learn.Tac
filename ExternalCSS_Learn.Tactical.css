@@ -201,3 +201,19 @@ sjwc-catalog-tile img[slot="image"],
     margin-top: 0 !important;
     display: inline-block !important;
 }
+/* --- NEUTRALIZE CORE HEADER HEIGHT LIMITS --- */
+#header .headerheight,
+#header .header-left,
+#header #header-right {
+    height: 80px !important; /* Force internal containers to match our 80px header */
+    min-height: 80px !important;
+}
+
+/* Ensure the login link specifically fills that height to center its text */
+#header .login-link,
+#header .header-dropdown-button-v2 {
+    height: 80px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    margin: 0 !important;
+}
