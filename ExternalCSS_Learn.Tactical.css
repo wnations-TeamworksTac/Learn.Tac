@@ -153,3 +153,38 @@ sjwc-context-provider {
     border-color: #4CAF50 !important;
     --537824e4: #4CAF50 !important; /* The hover variable you found */
 }
+
+/* --- SHRINK TILE HEIGHT --- */
+sjwc-catalog-tile {
+    /* 1. Limit the overall height of the tile */
+    height: 420px !important; 
+    min-height: 420px !important;
+}
+
+/* 2. Shrink the icon/image area */
+sjwc-catalog-tile img[slot="image"], 
+.catalog-tile__img-wrapper {
+    height: 140px !important; /* Smaller header area */
+    object-fit: contain !important;
+    padding: 15px !important;
+}
+
+/* 3. Tighten the text area */
+.catalog-tile__content {
+    padding: 10px 20px !important; /* Less space above/below text */
+}
+
+/* 4. Truncate long descriptions so they don't push the height out */
+sjwc-catalog-tile p[slot="description"] {
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important; /* Only show 2 lines of text */
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+    margin-top: 8px !important;
+}
+
+/* 5. Tighten the title spacing */
+sjwc-catalog-tile h2[slot="title"] {
+    margin-top: 0 !important;
+    font-size: 18px !important; /* Slightly smaller font to save space */
+}
