@@ -4,232 +4,168 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
 
-/* --- THE NUCLEAR BLACKOUT OVERRIDE --- */
-
-/* 1. Kill the white body background */
-html, body, #main-container {
+/* --- 1. GLOBAL BLACKOUT OVERRIDE --- */
+/* Target the core Skilljar layout to force black background */
+html, body, #main-container, #skilljar-content {
     background-color: #000000 !important;
     background: #000000 !important;
-}
-
-/* 2. Kill the 'skilljar-content' grey/white background */
-#skilljar-content {
-    background-color: #000000 !important;
-    background: #000000 !important;
-}
-
-/* 3. Kill the Catalog specific container backgrounds */
-.sj-page-catalog #main-container, 
-.sj-page-catalog #skilljar-content,
-.sj-page-catalog-root #main-container {
-    background-color: #000000 !important;
-    background-image: none !important;
-}
-
-/* 4. Fix the white 'top-row' padding areas */
-.top-row, .top-row-white-v2, .top-row-grey {
-    background-color: #000000 !important;
-    border-bottom: 1px solid rgba(255,255,255,0.1) !important;
-}
-
-/* --- 1. RESPONSIVE GLOBAL SETTINGS --- */
-html, body {
     max-width: 100vw;
-    overflow-x: hidden; /* Prevents horizontal scrolling */
+    overflow-x: hidden;
 }
 
 body, h1, h2, h3, h4, h5, h6, p, a, button, input, textarea, li { 
     font-family: 'Manrope', sans-serif !important; 
 }
 
-/* --- 2. SURGICAL BACKGROUND FIX --- */
-#skilljar-content, 
-.sj-page-catalog #main-container, 
-sjwc-catalog-tile-platform-wrapper {
+/* Fix for Skilljar's white "top-row" and "grey-bg" classes */
+.top-row, .top-row-white-v2, .top-row-grey, .sj-grey-bg-v2 {
     background-color: #000000 !important;
-    background-image: none !important;
-    max-width: 100% !important;
+    background: #000000 !important;
+    border-bottom: 1px solid rgba(255,255,255,0.1) !important;
 }
 
-/* --- 3. PIERCE THE SHADOW DOM (TILES) --- */
-sjwc-catalog-tile {
-    /* Layout & Shape */
-    border-radius: 16px !important;
-    overflow: hidden !important;
+/* --- 2. NAVIGATION & HEADER --- */
+#header {
     background-color: #000000 !important;
-    border: 1px solid #ffffff !important;
-    max-width: 100%; /* Ensures tiles don't overflow on small screens */
-
-    /* Force Internal Colors (Shadow DOM Variables) */
-    --tile-background-color: #000000 !important;
-    --511f908c: #000000 !important; 
-    --3676d864: transparent !important; 
+    height: 80px !important;
+    display: flex !important;
+    align-items: center !important;
+    border-bottom: 1px solid rgba(255,255,255,0.1) !important;
 }
 
-/* Slot Targeting for Tile Text */
-sjwc-catalog-tile h2[slot="title"] { color: #ffffff !important; }
-sjwc-catalog-tile p[slot="description"] { color: rgba(255, 255, 255, 0.9) !important; }
-
-sjwc-catalog-tile:hover {
-    border-color: #4CAF50 !important;
-    transition: border-color 0.3s ease;
-}
-
-/* --- 4. NAVIGATION & HEADER --- */
 .tw-custom-nav { 
     display: flex !important; 
     align-items: center !important; 
-    margin-right: 15px; 
-    height: 100%; 
+    height: 80px !important;
+    margin-right: 20px; 
 }
 
 .tw-nav-item { 
-    position: relative; 
-    margin: 0 5px; 
+    position: relative;
+    color: #ffffff !important; 
     padding: 0 15px; 
-    color: #7F8188; 
-    font-size: 14px; 
-    font-weight: 500; 
-    cursor: pointer; 
-    display: flex; 
-    align-items: center; 
-    height: 80px; 
+    height: 80px !important; 
+    display: flex !important; 
+    align-items: center !important;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
 }
 
-.tw-nav-item:hover { color: #ffffff; }
 .tw-nav-item a { color: inherit; text-decoration: none; }
 
-/* Dropdown Menu */
+/* DROPDOWN MENU FIX */
 .tw-dropdown { 
     display: none; 
     position: absolute; 
-    top: 100%; 
+    top: 80px; 
     left: 0; 
-    background: #000000; 
-    border: 1px solid rgba(255,255,255,0.1); 
-    min-width: 180px; 
-    z-index: 99999 !important; 
+    background: #111111 !important; 
+    border: 1px solid rgba(255,255,255,0.2) !important; 
+    min-width: 200px; 
+    z-index: 999999 !important; 
     flex-direction: column; 
     padding: 10px 0; 
-    box-shadow: 0 4px 12px rgba(0,0,0,0.5); 
+    box-shadow: 0 8px 16px rgba(0,0,0,0.5); 
 }
 
 .tw-nav-item:hover .tw-dropdown { display: flex !important; }
-.tw-dropdown a { padding: 10px 20px; width: 100%; text-align: left; display: block; line-height: normal; color: #7F8188; }
-.tw-dropdown a:hover { background: #1A6AFF; color: #ffffff; }
 
-/* --- 5. SIGN IN BUTTON FIX --- */
-#header-right { display: flex !important; align-items: center !important; }
+.tw-dropdown a { 
+    color: #ffffff !important; 
+    padding: 12px 20px !important; 
+    text-decoration: none !important;
+    display: block;
+    width: 100%;
+}
 
-#header-right a[href*="login"],
+.tw-dropdown a:hover { background: #1A6AFF !important; }
+
+/* --- 3. SIGN IN / ACCOUNT DROPDOWN FIX --- */
+#header-right { 
+    display: flex !important; 
+    align-items: center !important; 
+    height: 80px !important;
+}
+
+#header-right a.login-link,
 #header-right .header-login-button,
 #header-right #header-drop,
 #header-right .header-dropdown-button {
     display: flex !important;
     align-items: center !important;
-    margin-top: 0 !important;
-    height: 80px !important; /* Centered in nav bar */
+    justify-content: center !important;
+    height: 80px !important;
+    margin: 0 !important;
+    padding: 0 20px !important;
     color: #ffffff !important;
 }
 
-#header-right #header-drop img,
-#header-right #header-drop .sj-icon-user {
+/* User avatar alignment */
+#header-right #header-drop img, 
+#header-right .sj-icon-user {
+    margin: 0 !important;
     transform: translateY(2px) !important;
 }
 
-/* --- 6. MOBILE RESPONSIVENESS (THE BREAKPOINT) --- */
-@media (max-width: 768px) {
-    /* Hide custom nav on phones to avoid overlap */
-    .tw-custom-nav { display: none !important; }
-    
-    /* Make the catalog content fill the screen */
-    .catalog-tile-wrapper__content {
-        width: 100% !important;
-        padding: 0 20px !important;
-    }
-    
-    /* Adjust Header Text Sizes */
-    .tw-text-group h1 { font-size: 32px !important; }
-    .tw-header-text h2 { font-size: 28px !important; }
+/* --- 4. PIERCE SHADOW DOM (COURSE TILES) --- */
+sjwc-catalog-tile {
+    display: block !important;
+    height: 380px !important; /* Adjusted Height */
+    min-height: 380px !important;
+    max-height: 380px !important;
+    border-radius: 16px !important;
+    overflow: hidden !important;
+    background-color: #000000 !important;
+    border: 1px solid #ffffff !important;
+    margin: 15px !important;
+
+    /* Shadow DOM Variable Overrides */
+    --511f908c: #000000 !important; 
+    --tile-background-color: #000000 !important;
+    --06e27304: #ffffff !important; 
+    --8a5a25a0: #ffffff !important; 
+    --3676d864: #ffffff !important; 
 }
 
-/* --- PERMANENT TILE BLACKOUT --- */
-
-/* 1. Target the specific class you found inside the tile */
 .catalog-tile {
     background-color: #000000 !important;
-    background: #000000 !important;
+    height: 100% !important;
 }
 
-/* 2. Kill the white background variable Skilljar is using */
-sjwc-catalog-tile, 
-sjwc-context-provider {
-    --511f908c: #000000 !important; /* This is the background variable you found */
-    --tile-background-color: #000000 !important;
-    
-    /* Text Color Variables from your discovery */
-    --06e27304: #ffffff !important; /* Title color */
-    --8a5a25a0: #ffffff !important; /* Description color */
-    
-    /* Border Variables */
-    --3676d864: #ffffff !important; /* The border color */
-    --47453772: 1px !important;    /* Border width */
-}
-
-/* 3. Handle the Hover state from the code you found */
-.catalog-tile-wrapper:hover .catalog-tile {
-    border-color: #4CAF50 !important;
-    --537824e4: #4CAF50 !important; /* The hover variable you found */
-}
-
-/* --- SHRINK TILE HEIGHT --- */
-sjwc-catalog-tile {
-    /* 1. Limit the overall height of the tile */
-    height: 420px !important; 
-    min-height: 420px !important;
-}
-
-/* 2. Shrink the icon/image area */
-sjwc-catalog-tile img[slot="image"], 
-.catalog-tile__img-wrapper {
-    height: 240px !important; /* Smaller header area */
-      width: 240px;
-    object-fit: contain !important;
-    padding: 15px !important;
-}
-
-.catalog-tile-wrapper__content__tiles {
-    height: 240px !important; /* Smaller header area */
-    width: 240px;
-    object-fit: contain !important;
-    padding: 15px !important;
-}
-
-/* 3. Tighten the text area */
-.catalog-tile__content {
-    padding: 10px 20px !important; /* Less space above/below text */
-}
-
-/* 4. Truncate long descriptions so they don't push the height out */
-sjwc-catalog-tile p[slot="description"] {
+/* Slot targeting for text colors */
+sjwc-catalog-tile h2[slot="title"] { color: #ffffff !important; }
+sjwc-catalog-tile p[slot="description"] { 
+    color: rgba(255, 255, 255, 0.9) !important;
     display: -webkit-box !important;
-    -webkit-line-clamp: 2 !important; /* Only show 2 lines of text */
+    -webkit-line-clamp: 2 !important;
     -webkit-box-orient: vertical !important;
     overflow: hidden !important;
-    margin-top: 8px !important;
 }
 
-/* 5. Tighten the title spacing */
-sjwc-catalog-tile h2[slot="title"] {
-    margin-top: 0 !important;
-    font-size: 18px !important; /* Slightly smaller font to save space */
-}
-/* --- TIGHTEN TILE HEIGHT --- */
-sjwc-catalog-tile {
-    display: block !important; /* Critical for height to work on custom elements */
-    height: 180px !important; 
-    min-height: 180px !important;
-    max-height: 180px !important;
+/* Tile Hover State */
+sjwc-catalog-tile:hover {
+    border-color: #4CAF50 !important;
+    --537824e4: #4CAF50 !important;
 }
 
+/* Icon/Image Shrink */
+sjwc-catalog-tile img[slot="image"], 
+.catalog-tile__img-wrapper {
+    height: 140px !important;
+    object-fit: contain !important;
+    padding: 15px !important;
+}
+
+/* --- 5. MOBILE RESPONSIVENESS --- */
+@media (max-width: 768px) {
+    #header { height: 60px !important; }
+    .tw-custom-nav { display: none !important; }
+    #header-right, #header-right a.login-link, #header-right #header-drop { height: 60px !important; }
+    
+    sjwc-catalog-tile {
+        width: calc(100% - 30px) !important;
+        height: auto !important;
+        max-height: none !important;
+    }
 }
