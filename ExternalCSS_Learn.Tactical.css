@@ -1,5 +1,5 @@
 /* ========================================= */
-/* TACTICAL ENABLEMENT - CLEAN MASTER CSS    */
+/* TACTICAL ENABLEMENT - MASTER STYLESHEET   */
 /* ========================================= */
 
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
@@ -9,57 +9,67 @@ body, h1, h2, h3, h4, h5, h6, p, span, a, button, input, select, textarea, li {
     font-family: 'Manrope', sans-serif !important; 
 }
 
-/* --- 2. HEADER BASE STYLING --- */
-/* We are letting Skilljar determine the height now, but forcing the background black */
+/* --- 2. HEADER BASE STYLES (BLACK) --- */
 #header {
     background-color: #000000 !important;
     border-bottom: 1px solid rgba(255,255,255,0.1) !important;
 }
 
-/* Force all links in the header (Native Nav + Sign In) to be White */
-#header a, 
-#header .header-link, 
-#header .login-link,
-#header .header-dropdown-button-v2 {
+#header a, #header .header-link, #header .login-link, #header .header-dropdown-button-v2 {
     color: #ffffff !important;
     text-decoration: none !important;
-    transition: opacity 0.2s ease;
 }
 
-#header a:hover {
-    opacity: 0.8;
+/* --- 3. CATALOG-ONLY BLACKOUT --- */
+/* This ONLY triggers on the main course catalog page */
+.sj-page-catalog-root, 
+.sj-page-catalog-root #main-container, 
+.sj-page-catalog-root #skilljar-content {
+    background-color: #000000 !important;
+    background: #000000 !important;
 }
 
-/* --- 3. SIGN IN / ACCOUNT ALIGNMENT --- */
-/* Removing the 80px restriction and using flex centering on the native container */
+/* Ensure the top row on the catalog is also black */
+.sj-page-catalog-root .top-row, 
+.sj-page-catalog-root .top-row-white-v2, 
+.sj-page-catalog-root .top-row-grey, 
+.sj-page-catalog-root .sj-grey-bg-v2 {
+    background-color: #000000 !important;
+    border-bottom: 1px solid rgba(255,255,255,0.1) !important;
+}
+
+/* --- 4. CATALOG TILE STYLING (BLACK CARDS) --- */
+/* Target tiles specifically on the catalog root */
+.sj-page-catalog-root sjwc-catalog-tile {
+    display: block !important;
+    background-color: #000000 !important;
+    border: 1px solid #ffffff !important;
+    border-radius: 16px !important;
+    height: 380px !important;
+    margin: 15px !important;
+}
+
+/* Slot text colors for catalog tiles */
+.sj-page-catalog-root sjwc-catalog-tile h2[slot="title"] { color: #ffffff !important; }
+.sj-page-catalog-root sjwc-catalog-tile p[slot="description"] { color: rgba(255, 255, 255, 0.9) !important; }
+
+/* --- 5. SIGN IN / ACCOUNT ALIGNMENT --- */
 #header-right {
     display: flex !important;
     align-items: center !important;
-    justify-content: flex-end !important;
 }
 
-/* Vertical centering for the specific Sign In / Profile button */
 #header .login-link,
 #header .header-dropdown-button-v2 {
     display: flex !important;
     align-items: center !important;
-    margin: 0 !important;
     height: 100% !important;
+    margin: 0 !important;
+    padding: 0 20px !important;
 }
 
-/* Force the Profile Icon to be visible */
 #header-right .sj-icon-user, 
 #header-right #header-drop img {
     color: #ffffff !important;
     vertical-align: middle !important;
-    margin-right: 5px !important;
-}
-
-/* --- 4. TILE STYLING (MODERN WHITE) --- */
-:not(.search):not(.list-view) > #catalog-content a.coursebox-container {
-    border: none !important;
-    border-radius: 8px !important;
-    box-shadow: 0 6px 12px 1px rgba(0,0,0,.1) !important;
-    background-color: #ffffff !important;
-    margin: 15px !important;
 }
