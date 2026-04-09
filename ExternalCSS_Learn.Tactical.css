@@ -9,7 +9,7 @@ body, h1, h2, h3, h4, h5, h6, div, p, span, a, button, input, select, textarea, 
     font-family: 'Manrope', sans-serif !important; 
 }
 
-/* --- 2. HEADER BASE STYLES (BLACK) --- */
+/* --- 2. HEADER BASE STYLES --- */
 #header {
     background-color: #000000 !important;
     height: 80px !important;
@@ -31,59 +31,51 @@ body[class*="sj-page-catalog"] .grey-bg-d05 {
     background: #000000 !important;
 }
 
-/* --- 4. TILE SIZE & STYLE (SHRUNK) --- */
-/* Targeting the specific tile component you identified */
-body[class*="sj-page-catalog"] sjwc-catalog-tile {
-    display: block !important;
+/* --- 4. TILE SIZE & STYLE (USING INSPECTOR CLASSES) --- */
+/* We target the exact 'slotted' logic from your screenshot */
+.catalog-tile-wrapper__content__tiles ::slotted(sjwc-catalog-tile),
+sjwc-catalog-tile {
     background-color: #000000 !important;
     border: 1px solid #ffffff !important;
     border-radius: 16px !important;
     
-    /* SHRUNK HEIGHT: 310px is the sweet spot for these tiles */
+    /* Optimized Tactical Dimensions */
     height: 310px !important; 
     min-height: 310px !important;
     max-height: 310px !important;
+    width: 280px !important; /* Matches Skilljar's expected width */
     margin: 12px !important;
-    overflow: hidden !important;
 }
 
-/* Ensure the image inside the smaller tile scales down */
-body[class*="sj-page-catalog"] sjwc-catalog-tile img[slot="image"] {
-    height: 110px !important;
+/* Shrink image to fit the new 310px height */
+sjwc-catalog-tile img[slot="image"] {
+    max-height: 100px !important;
     object-fit: contain !important;
     padding: 10px !important;
-    margin-top: 5px !important;
 }
 
-body[class*="sj-page-catalog"] sjwc-catalog-tile h2[slot="title"] { 
-    color: #ffffff !important; 
-    font-size: 17px !important; 
-    margin-top: 10px !important;
-}
+sjwc-catalog-tile h2[slot="title"] { color: #ffffff !important; font-size: 17px !important; }
+sjwc-catalog-tile p[slot="description"] { color: rgba(255, 255, 255, 0.8) !important; font-size: 13px !important; }
 
-body[class*="sj-page-catalog"] sjwc-catalog-tile p[slot="description"] { 
-    color: rgba(255, 255, 255, 0.8) !important; 
-    font-size: 13px !important; 
-}
-
-/* --- 5. SIGN IN ALIGNMENT (THE BLOCK FIX) --- */
-/* By setting line-height to 80px, we force the text to the 40px center line */
-#header #header-right,
-#header .header-dropdown-button-v2,
-#header .login-link {
-    display: block !important;
+/* --- 5. SIGN IN ALIGNMENT (REFINED 25PX FIX) --- */
+#header-right {
     height: 80px !important;
-    line-height: 80px !important; 
-    padding-top: 0 !important;
-    margin-top: 0 !important;
-    color: #ffffff !important;
-    text-align: center !important;
+    display: flex !important;
+    align-items: center !important;
 }
 
-#header-right .sj-icon-user, 
-#header-right #header-drop img {
+#header .login-link,
+#header .header-dropdown-button-v2 {
+    display: inline-block !important;
+    height: 80px !important;
+    padding-top: 25px !important; /* Your manual fix */
+    line-height: 1 !important;    /* Resets Skilljar internal height */
+    color: #ffffff !important;
+    box-sizing: border-box !important;
+}
+
+#header-right .sj-icon-user {
     color: #ffffff !important;
     vertical-align: middle !important;
-    display: inline-block !important;
-    margin-top: -3px !important; /* Slight nudge for the icon */
+    margin-top: -3px !important;
 }
