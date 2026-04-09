@@ -124,21 +124,3 @@ sjwc-catalog-tile:hover {
     .tw-text-group h1 { font-size: 32px !important; }
     .tw-header-text h2 { font-size: 28px !important; }
 }
-/* --- RESIZE COURSE TILES --- */
-sjwc-catalog-tile {
-    /* Adjust this pixel value to make tiles larger or smaller */
-    width: 350px !important; 
-    
-    /* This ensures they don't get 'stuck' if the screen is too small */
-    flex-direction: column !important;
-    margin: 15px !important;
-}
-
-/* --- RESPONSIVE TILE FIX --- */
-/* This makes sure that on mobile, the tiles don't stay 350px and bleed off the screen */
-@media (max-width: 480px) {
-    sjwc-catalog-tile {
-        width: 100% !important;
-        margin: 10px 0 !important;
-    }
-}
