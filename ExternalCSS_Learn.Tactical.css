@@ -20,7 +20,7 @@ body, h1, h2, h3, h4, h5, h6, div, p, span, a, button, input, select, textarea, 
     text-decoration: none !important;
 }
 
-/* --- 3. CATALOG BLACKOUT (PERSISTENT FIX) --- */
+/* --- 3. CATALOG BLACKOUT --- */
 body[class*="sj-page-catalog"] #skilljar-content,
 body[class*="sj-page-catalog"] .catalog-tile-wrapper,
 body[class*="sj-page-catalog"] .catalog-tile-wrapper__content__tiles,
@@ -31,36 +31,49 @@ body[class*="sj-page-catalog"] .grey-bg-d05 {
     background: #000000 !important;
 }
 
-/* --- 4. CATALOG TILE STYLING (HEIGHT ADJUSTED) --- */
+/* --- 4. TILE SIZE & STYLE (SHRUNK) --- */
+/* Targeting the specific tile component you identified */
 body[class*="sj-page-catalog"] sjwc-catalog-tile {
     display: block !important;
     background-color: #000000 !important;
     border: 1px solid #ffffff !important;
     border-radius: 16px !important;
-    /* SHRUNK HEIGHT */
-    height: 320px !important; 
-    min-height: 320px !important;
-    max-height: 320px !important;
-    margin: 15px !important;
+    
+    /* SHRUNK HEIGHT: 310px is the sweet spot for these tiles */
+    height: 310px !important; 
+    min-height: 310px !important;
+    max-height: 310px !important;
+    margin: 12px !important;
+    overflow: hidden !important;
 }
 
-/* Adjust image inside smaller card */
+/* Ensure the image inside the smaller tile scales down */
 body[class*="sj-page-catalog"] sjwc-catalog-tile img[slot="image"] {
     height: 110px !important;
+    object-fit: contain !important;
     padding: 10px !important;
+    margin-top: 5px !important;
 }
 
-body[class*="sj-page-catalog"] sjwc-catalog-tile h2[slot="title"] { color: #ffffff !important; font-size: 18px !important; }
-body[class*="sj-page-catalog"] sjwc-catalog-tile p[slot="description"] { color: rgba(255, 255, 255, 0.9) !important; font-size: 13px !important; }
+body[class*="sj-page-catalog"] sjwc-catalog-tile h2[slot="title"] { 
+    color: #ffffff !important; 
+    font-size: 17px !important; 
+    margin-top: 10px !important;
+}
 
-/* --- 5. SIGN IN ALIGNMENT (FORCE DOWN) --- */
-/* Target the specific container that is floating high */
+body[class*="sj-page-catalog"] sjwc-catalog-tile p[slot="description"] { 
+    color: rgba(255, 255, 255, 0.8) !important; 
+    font-size: 13px !important; 
+}
+
+/* --- 5. SIGN IN ALIGNMENT (THE BLOCK FIX) --- */
+/* By setting line-height to 80px, we force the text to the 40px center line */
 #header #header-right,
 #header .header-dropdown-button-v2,
 #header .login-link {
     display: block !important;
     height: 80px !important;
-    line-height: 80px !important; /* This physically forces the text to the 40px mark */
+    line-height: 80px !important; 
     padding-top: 0 !important;
     margin-top: 0 !important;
     color: #ffffff !important;
@@ -72,5 +85,5 @@ body[class*="sj-page-catalog"] sjwc-catalog-tile p[slot="description"] { color: 
     color: #ffffff !important;
     vertical-align: middle !important;
     display: inline-block !important;
-    margin-top: -4px !important; /* Fine-tune the icon specifically */
+    margin-top: -3px !important; /* Slight nudge for the icon */
 }
