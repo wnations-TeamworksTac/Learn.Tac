@@ -58,12 +58,27 @@ sjwc-catalog-tile p[slot="description"] { color: rgba(255, 255, 255, 0.8) !impor
 
 /* --- 5. SIGN IN ALIGNMENT (REVISED) --- */
 #header-right {
-    height: 80px !important;
     display: flex !important;
     flex-direction: row !important;
-    align-items: center !important;
+    align-items: flex-start !important;
     flex-wrap: nowrap !important;
-    gap: 8px !important;
+    gap: 0 !important;
+    height: 80px !important;
+}
+
+/* Stretch nav container to full header height so flex-start aligns correctly */
+#header .header-links-container {
+    display: flex !important;
+    align-items: center !important;
+    height: 80px !important;
+}
+
+/* Match account-nav to same full height so Sign In centers at same y-position */
+#header .account-nav {
+    display: flex !important;
+    align-items: center !important;
+    height: 80px !important;
+    padding: 0 !important;
 }
 
 #header .login-link,
@@ -71,7 +86,7 @@ sjwc-catalog-tile p[slot="description"] { color: rgba(255, 255, 255, 0.8) !impor
     display: inline-flex !important;
     align-items: center !important;
     height: auto !important;
-    padding-top: 0 !important;
+    padding: 0 20px !important;
     line-height: normal !important;
     color: #ffffff !important;
     white-space: nowrap !important;
@@ -80,5 +95,4 @@ sjwc-catalog-tile p[slot="description"] { color: rgba(255, 255, 255, 0.8) !impor
 #header-right .sj-icon-user {
     color: #ffffff !important;
     vertical-align: middle !important;
-    margin-top: -3px !important;
 }
