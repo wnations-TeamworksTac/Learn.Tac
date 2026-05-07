@@ -31,12 +31,12 @@ body[class*="sj-page-catalog"] .grey-bg-d05 {
 
 /* --- 4. TILE COLORS (CSS CUSTOM PROPERTIES - PIERCE SHADOW DOM) --- */
 sjwc-catalog-tile {
-    --511f908c: #0d1b2a !important;  /* tile background - dark navy */
-    --3676d864: #1694d1 !important;  /* border - Teamworks blue */
-    --47453772: 2px !important;      /* border width - slightly thicker */
-    --06e27304: #ffffff !important;  /* title - white */
-    --8a5a25a0: #b0bec5 !important;  /* description - soft grey */
-    --7e19c6bc: #8899aa !important;  /* muted text - medium grey */
+    --511f908c: #0d1b2a !important;
+    --3676d864: #1694d1 !important;
+    --47453772: 2px !important;
+    --06e27304: #ffffff !important;
+    --8a5a25a0: #b0bec5 !important;
+    --7e19c6bc: #8899aa !important;
 }
 
 /* --- 5. TILE SIZE & STYLE --- */
@@ -54,11 +54,11 @@ sjwc-catalog-tile img[slot="image"] {
     padding: 10px !important;
 }
 
-/* --- 6. SIGN IN ALIGNMENT --- */
+/* --- 6. SIGN IN / NAV ALIGNMENT --- */
 #header-right {
     display: flex !important;
     flex-direction: row !important;
-    align-items: flex-start !important;
+    align-items: center !important;
     flex-wrap: nowrap !important;
     gap: 0 !important;
     height: 80px !important;
@@ -66,12 +66,12 @@ sjwc-catalog-tile img[slot="image"] {
 #header .header-links-container {
     display: flex !important;
     align-items: center !important;
-    height: 80px !important;
+    height: auto !important;
 }
 #header .account-nav {
     display: flex !important;
     align-items: center !important;
-    height: 80px !important;
+    height: auto !important;
     padding: 0 !important;
 }
 #header .login-link,
@@ -79,7 +79,7 @@ sjwc-catalog-tile img[slot="image"] {
     display: inline-flex !important;
     align-items: center !important;
     height: auto !important;
-    padding: 0 20px !important;
+    padding: 0 16px !important;
     line-height: normal !important;
     color: #ffffff !important;
     white-space: nowrap !important;
