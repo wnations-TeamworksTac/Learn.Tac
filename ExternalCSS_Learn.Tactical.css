@@ -1,22 +1,6 @@
 /* ========================================= */
 /* TACTICAL ENABLEMENT - MASTER STYLESHEET   */
 /* ========================================= */
-
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
-
-/* --- 1. GLOBAL TYPOGRAPHY --- */
-body, h1, h2, h3, h4, h5, h6, div, p, span, a, button, input, select, textarea, li { 
-    font-family: 'Manrope', sans-serif !important; 
-}
-
-/* --- 2. HEADER BASE STYLES --- */
-#header {
-    background-color: #000000 !important;
-    height: 80px !important;
-/* ========================================= */
-/* TACTICAL ENABLEMENT - MASTER STYLESHEET   */
-/* ========================================= */
-
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
 
 /* --- 1. GLOBAL TYPOGRAPHY --- */
@@ -53,12 +37,12 @@ sjwc-catalog-tile {
     background-color: #000000 !important;
     border: 1px solid #ffffff !important;
     border-radius: 16px !important;
-    
+
     /* Optimized Tactical Dimensions */
-    height: 310px !important; 
+    height: 310px !important;
     min-height: 310px !important;
     max-height: 310px !important;
-    width: 280px !important; /* Matches Skilljar's expected width */
+    width: 280px !important;
     margin: 12px !important;
 }
 
@@ -91,72 +75,6 @@ sjwc-catalog-tile p[slot="description"] { color: rgba(255, 255, 255, 0.8) !impor
     line-height: normal !important;
     color: #ffffff !important;
     white-space: nowrap !important;
-}
-
-#header-right .sj-icon-user {
-    color: #ffffff !important;
-    vertical-align: middle !important;
-    margin-top: -3px !important;
-}
-}
-
-#header a, #header .header-link {
-    color: #ffffff !important;
-    text-decoration: none !important
-}
-
-/* --- 3. CATALOG BLACKOUT --- */
-body[class*="sj-page-catalog"] #skilljar-content,
-body[class*="sj-page-catalog"] .catalog-tile-wrapper,
-body[class*="sj-page-catalog"] .catalog-tile-wrapper__content__tiles,
-body[class*="sj-page-catalog"] .sjwc-catalog-tile-platform-wrapper,
-body[class*="sj-page-catalog"] .white-bg-v2,
-body[class*="sj-page-catalog"] .grey-bg-d05 {
-    background-color: #000000 !important;
-    background: #000000 !important;
-}
-
-/* --- 4. TILE SIZE & STYLE (USING INSPECTOR CLASSES) --- */
-/* We target the exact 'slotted' logic from your screenshot */
-.catalog-tile-wrapper__content__tiles ::slotted(sjwc-catalog-tile),
-sjwc-catalog-tile {
-    background-color: #000000 !important;
-    border: 1px solid #ffffff !important;
-    border-radius: 16px !important;
-    
-    /* Optimized Tactical Dimensions */
-    height: 310px !important; 
-    min-height: 310px !important;
-    max-height: 310px !important;
-    width: 280px !important; /* Matches Skilljar's expected width */
-    margin: 12px !important;
-}
-
-/* Shrink image to fit the new 310px height */
-sjwc-catalog-tile img[slot="image"] {
-    max-height: 100px !important;
-    object-fit: contain !important;
-    padding: 10px !important;
-}
-
-sjwc-catalog-tile h2[slot="title"] { color: #ffffff !important; font-size: 17px !important; }
-sjwc-catalog-tile p[slot="description"] { color: rgba(255, 255, 255, 0.8) !important; font-size: 13px !important; }
-
-/* --- 5. SIGN IN ALIGNMENT (REFINED 25PX FIX) --- */
-#header-right {
-    height: 80px !important;
-    display: flex !important;
-    align-items: center !important;
-}
-
-#header .login-link,
-#header .header-dropdown-button-v2 {
-    display: inline-block !important;
-    height: 80px !important;
-    padding-top: 25px !important; /* Your manual fix */
-    line-height: 1 !important;    /* Resets Skilljar internal height */
-    color: #ffffff !important;
-    box-sizing: border-box !important;
 }
 
 #header-right .sj-icon-user {
