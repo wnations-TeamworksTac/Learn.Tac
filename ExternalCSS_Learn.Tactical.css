@@ -88,3 +88,8 @@ sjwc-catalog-tile img[slot="image"] {
     color: #ffffff !important;
     vertical-align: middle !important;
 }
+
+/* --- 7. TILE DARK MODE FILTER --- */
+.tile-content-block {
+    filter: invert(1) hue-rotate(180deg) brightness(0.85) !important;
+}
