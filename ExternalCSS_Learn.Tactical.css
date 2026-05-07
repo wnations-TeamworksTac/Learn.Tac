@@ -13,7 +13,6 @@ body, h1, h2, h3, h4, h5, h6, div, p, span, a, button, input, select, textarea, 
     background-color: #000000 !important;
     height: 80px !important;
 }
-
 #header a, #header .header-link {
     color: #ffffff !important;
     text-decoration: none !important;
@@ -30,33 +29,32 @@ body[class*="sj-page-catalog"] .grey-bg-d05 {
     background: #000000 !important;
 }
 
-/* --- 4. TILE SIZE & STYLE (USING INSPECTOR CLASSES) --- */
-/* We target the exact 'slotted' logic from your screenshot */
-.catalog-tile-wrapper__content__tiles ::slotted(sjwc-catalog-tile),
+/* --- 4. TILE COLORS (CSS CUSTOM PROPERTIES - PIERCE SHADOW DOM) --- */
 sjwc-catalog-tile {
-    background-color: #000000 !important;
-    border: 1px solid #ffffff !important;
-    border-radius: 16px !important;
+    --511f908c: #0d1b2a !important;  /* tile background - dark navy */
+    --3676d864: #1694d1 !important;  /* border - Teamworks blue */
+    --47453772: 2px !important;      /* border width - slightly thicker */
+    --06e27304: #ffffff !important;  /* title - white */
+    --8a5a25a0: #b0bec5 !important;  /* description - soft grey */
+    --7e19c6bc: #8899aa !important;  /* muted text - medium grey */
+}
 
-    /* Optimized Tactical Dimensions */
+/* --- 5. TILE SIZE & STYLE --- */
+sjwc-catalog-tile {
+    border-radius: 16px !important;
     height: 310px !important;
     min-height: 310px !important;
     max-height: 310px !important;
     width: 280px !important;
     margin: 12px !important;
 }
-
-/* Shrink image to fit the new 310px height */
 sjwc-catalog-tile img[slot="image"] {
     max-height: 100px !important;
     object-fit: contain !important;
     padding: 10px !important;
 }
 
-sjwc-catalog-tile h2[slot="title"] { color: #ffffff !important; font-size: 17px !important; }
-sjwc-catalog-tile p[slot="description"] { color: rgba(255, 255, 255, 0.8) !important; font-size: 13px !important; }
-
-/* --- 5. SIGN IN ALIGNMENT (REVISED) --- */
+/* --- 6. SIGN IN ALIGNMENT --- */
 #header-right {
     display: flex !important;
     flex-direction: row !important;
@@ -65,22 +63,17 @@ sjwc-catalog-tile p[slot="description"] { color: rgba(255, 255, 255, 0.8) !impor
     gap: 0 !important;
     height: 80px !important;
 }
-
-/* Stretch nav container to full header height so flex-start aligns correctly */
 #header .header-links-container {
     display: flex !important;
     align-items: center !important;
     height: 80px !important;
 }
-
-/* Match account-nav to same full height so Sign In centers at same y-position */
 #header .account-nav {
     display: flex !important;
     align-items: center !important;
     height: 80px !important;
     padding: 0 !important;
 }
-
 #header .login-link,
 #header .header-dropdown-button-v2 {
     display: inline-flex !important;
@@ -91,7 +84,6 @@ sjwc-catalog-tile p[slot="description"] { color: rgba(255, 255, 255, 0.8) !impor
     color: #ffffff !important;
     white-space: nowrap !important;
 }
-
 #header-right .sj-icon-user {
     color: #ffffff !important;
     vertical-align: middle !important;
