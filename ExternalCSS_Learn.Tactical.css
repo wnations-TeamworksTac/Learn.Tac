@@ -29,25 +29,7 @@ body[class*="sj-page-catalog"] .grey-bg-d05 {
     background: #ffffff !important;
 }
 
-/* --- 4. TILE COLORS (CSS CUSTOM PROPERTIES - PIERCE SHADOW DOM) --- */
-sjwc-catalog-tile {
-    --511f908c: #0d1b2a !important;
-    --3676d864: #1694d1 !important;
-    --47453772: 2px !important;
-    --06e27304: #ffffff !important;
-    --8a5a25a0: #b0bec5 !important;
-    --7e19c6bc: #8899aa !important;
-}
 
-/* --- 5. TILE SIZE & STYLE --- */
-sjwc-catalog-tile {
-    border-radius: 16px !important;
-    height: 310px !important;
-    min-height: 310px !important;
-    max-height: 310px !important;
-    width: 280px !important;
-    margin: 12px !important;
-}
 sjwc-catalog-tile img[slot="image"] {
     max-height: 100px !important;
     object-fit: contain !important;
@@ -89,7 +71,3 @@ sjwc-catalog-tile img[slot="image"] {
     vertical-align: middle !important;
 }
 
-/* --- 7. TILE DARK MODE FILTER --- */
-.tile-content-block {
-    filter: invert(1) hue-rotate(180deg) brightness(0.85) !important;
-}
